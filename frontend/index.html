@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>AirGuard AI</title>
+
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+    <div class="container">
+
+            <h1>AirGuard AI</h1>
+
+        <p>Predict Air Quality Index using AI</p>
+
+        <input id="pm25" type="number" placeholder="PM2.5"><br><br>
+
+        <input id="pm10" type="number" placeholder="PM10"><br><br>
+
+        <input id="no" type="number" placeholder="NO"><br><br>
+
+        <input id="no2" type="number" placeholder="NO2"><br><br>
+
+        <input id="nox" type="number" placeholder="NOx"><br><br>
+
+        <input id="nh3" type="number" placeholder="NH3"><br><br>
+
+        <input id="co" type="number" step="0.1" placeholder="CO"><br><br>
+
+        <input id="so2" type="number" placeholder="SO2"><br><br>
+
+        <input id="o3" type="number" placeholder="O3"><br><br>
+
+        <input id="benzene" type="number" placeholder="Benzene"><br><br>
+
+        <input id="toluene" type="number" placeholder="Toluene"><br><br>
+
+        <select id="city">
+
+        <option>Delhi</option>
+
+        <option>Mumbai</option>
+
+        <option>Chennai</option>
+
+        <option>Ahmedabad</option>
+
+        <option>Bengaluru</option>
+
+        </select>
+
+        <br><br>
+
+        <select id="season">
+
+        <option>Winter</option>
+
+        <option>Summer</option>
+
+        <option>Monsoon</option>
+
+        <option>Post-Monsoon</option>
+
+        </select>
+
+        <br><br>
+
+        <button id="predictBtn">
+
+        Predict AQI
+
+        </button>
+
+        <h2 id="result"></h2>
+
+    </div>
+
+    <script src="script.js"></script>
+
+</body>
+
+</html>

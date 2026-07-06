@@ -74,7 +74,9 @@ def predict_city(request: CityRequest):
 
     lat, lon = coordinates
 
-    input_data = get_air_pollution(lat, lon)
+    pollutants = get_air_pollution(lat, lon)
+
+    input_data = pollutants.copy()
 
     # Date features
     from datetime import datetime
@@ -107,6 +109,7 @@ def predict_city(request: CityRequest):
     prediction = model.predict(df)[0]
 
     return {
-        "City": request.city,
-        "Predicted AQI": round(float(prediction), 2)
-    }
+    "City": request.city,
+    "Predicted AQI": round(float(prediction), 2),
+    "Pollutants": input_data
+}

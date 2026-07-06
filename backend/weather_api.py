@@ -55,7 +55,7 @@ def get_air_pollution(lat, lon):
         "NO": components["no"],
         "NO2": components["no2"],
         "NH3": components["nh3"],
-        "CO": components["co"],
+        "CO": components["co"] / 1000,
         "SO2": components["so2"],
         "O3": components["o3"],
         "NOx": MEDIAN_VALUES["NOx"],

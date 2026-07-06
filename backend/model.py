@@ -1,5 +1,4 @@
 from pydantic import BaseModel
-
 class AQIInput(BaseModel):
     PM2_5: float
     PM10: float

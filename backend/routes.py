@@ -7,9 +7,6 @@ from backend.utils import prepare_input
 
 router = APIRouter()
 
-class CityRequest(BaseModel):
-    city: str
-
 @router.post("/predict-city")
 def predict_city(request: CityRequest):
 

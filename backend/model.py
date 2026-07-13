@@ -18,3 +18,10 @@ class AQIInput(BaseModel):
 
     City: str
     Season: str
+
+class CityRequest(BaseModel):
+    city: str
+
+class LocationRequest(BaseModel):
+    latitude: float
+    longitude: float

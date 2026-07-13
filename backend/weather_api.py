@@ -65,6 +65,38 @@ def get_air_pollution(lat, lon):
 
     return pollutants
 
+def get_air_pollution_from_coordinates(lat, lon):
+
+    url = "https://api.openweathermap.org/data/2.5/air_pollution"
+
+    params = {
+        "lat": lat,
+        "lon": lon,
+        "appid": API_KEY
+    }
+
+    response = requests.get(url, params=params)
+
+    data = response.json()
+
+    components = data["list"][0]["components"]
+
+    pollutants = {
+        "PM2.5": components["pm2_5"],
+        "PM10": components["pm10"],
+        "NO": components["no"],
+        "NO2": components["no2"],
+        "NH3": components["nh3"],
+        "CO": components["co"],
+        "SO2": components["so2"],
+        "O3": components["o3"],
+        "NOx": MEDIAN_VALUES["NOx"],
+        "Benzene": MEDIAN_VALUES["Benzene"],
+        "Toluene": MEDIAN_VALUES["Toluene"],
+    }
+
+    return pollutants
+
 if __name__ == "__main__":
 
     lat, lon = get_coordinates("Delhi")

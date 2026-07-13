@@ -2,10 +2,11 @@ from fastapi import FastAPI
 from pydantic import BaseModel
 import joblib
 
-from backend.model import AQIInput
 from backend.utils import prepare_input
 from fastapi.middleware.cors import CORSMiddleware
 from backend.weather_api import get_coordinates, get_air_pollution
+from backend.weather_api import get_air_pollution_from_coordinates
+from backend.model import AQIInput, CityRequest, LocationRequest
 
 app = FastAPI(
     title="AirGuard AI",
@@ -113,3 +114,45 @@ def predict_city(request: CityRequest):
     "Predicted AQI": round(float(prediction), 2),
     "Pollutants": input_data
 }
+
+@app.post("/predict-location")
+def predict_location(request: LocationRequest):
+
+    pollutants = get_air_pollution_from_coordinates(
+        request.latitude,
+        request.longitude
+    )
+
+    input_data = pollutants.copy()
+
+    from datetime import datetime
+
+    today = datetime.now()
+
+    input_data["Year"] = today.year
+    input_data["Month"] = today.month
+    input_data["Day"] = today.day
+    input_data["DayOfWeek"] = today.weekday()
+
+    input_data["City"] = "Current Location"
+
+    month = today.month
+
+    if month in [12, 1, 2]:
+        input_data["Season"] = "Winter"
+    elif month in [3, 4, 5]:
+        input_data["Season"] = "Summer"
+    elif month in [6, 7, 8, 9]:
+        input_data["Season"] = "Monsoon"
+    else:
+        input_data["Season"] = "Post-Monsoon"
+
+    df = prepare_input(input_data, model_columns)
+
+    prediction = model.predict(df)[0]
+
+    return {
+        "City": "Current Location",
+        "Predicted AQI": round(float(prediction), 2),
+        "Pollutants": pollutants
+    }

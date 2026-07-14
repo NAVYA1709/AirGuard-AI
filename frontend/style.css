@@ -1,99 +1,106 @@
-body {
-    margin: 0;
-    padding: 0;
-    font-family: Arial, sans-serif;
-    background: #eef4f9;
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
 }
 
-.container {
-    width:520px;
-    margin: 50px auto;
-    background: white;
-    padding: 30px;
-    border-radius: 15px;
-    box-shadow: 0 8px 20px rgba(0,0,0,0.15);
-    text-align: center;
+body{
+    font-family: "Segoe UI", Arial, sans-serif;
+    background: linear-gradient(135deg,#d9f0ff,#eef8ff,#f8fcff);
+    min-height:100vh;
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    padding:40px 15px;
 }
 
-h1 {
-    color: #0077b6;
-    margin-bottom: 10px;
+.container{
+    width:100%;
+    max-width:600px;
+    background:rgba(255,255,255,.88);
+    backdrop-filter:blur(12px);
+    border-radius:22px;
+    padding:35px;
+    text-align:center;
+    box-shadow:0 20px 45px rgba(0,0,0,.15);
+    animation:fadeUp .5s ease;
 }
 
-p {
-    color: #555;
+@keyframes fadeUp{
+    from{
+        opacity:0;
+        transform:translateY(20px);
+    }
+    to{
+        opacity:1;
+        transform:translateY(0);
+    }
 }
 
-input {
-    width: 90%;
-    padding: 12px;
-    margin: 8px 0;
-    border-radius: 8px;
-    border: 1px solid #ccc;
-    font-size: 15px;
+.footer{
+    margin-top:25px;
+    font-size:13px;
+    color:#7f8c8d;
 }
 
-button {
-    background: #0077b6;
-    color: white;
-    border: none;
-    padding: 12px 20px;
-    border-radius: 8px;
-    cursor: pointer;
-    font-size: 16px;
-    margin-top: 10px;
-}
-
-button:hover {
-    background: #005f87;
-}
-
-#result {
-    margin-top: 25px;
-    font-size: 28px;
-    color: #222;
-}
-
-#category {
-    font-size: 24px;
-}
-
-#recommendation {
-    font-size: 17px;
-    line-height: 1.5;
-}
-
-#pollutants {
-    text-align: left;
-    background: #f7fbff;
-    padding: 15px;
-    border-radius: 10px;
-    margin-top: 15px;
-}
-
-.result-card {
-    margin-top: 35px;
-    padding: 20px;
-    border-radius: 15px;
-    background: #f8fbff;
-    border: 2px solid #d9eaf7;
-}
-
-.aqi-number {
-    font-size: 60px;
-    font-weight: bold;
-    margin: 10px 0;
+h1{
+    font-size:40px;
     color:#0077b6;
-
+    margin-bottom:8px;
 }
 
-.badge {
-    display: inline-block;
-    padding: 8px 18px;
-    border-radius: 25px;
-    color: white;
-    font-weight: bold;
-    margin-top: 10px;
+p{
+    color:#5d6d7e;
+    margin-bottom:18px;
+    line-height:1.6;
+}
+
+input{
+    width:100%;
+    padding:14px;
+    border-radius:12px;
+    border:1px solid #d4dce5;
+    font-size:16px;
+    transition:.25s;
+    outline:none;
+}
+
+input:focus{
+    border-color:#2196f3;
+    box-shadow:0 0 12px rgba(33,150,243,.25);
+}
+
+button{
+    width:100%;
+    border:none;
+    border-radius:12px;
+    padding:14px;
+    color:white;
+    font-size:16px;
+    font-weight:600;
+    cursor:pointer;
+    transition:.25s;
+}
+
+button:hover{
+    transform:translateY(-2px);
+    box-shadow:0 10px 20px rgba(0,0,0,.15);
+}
+
+#predictBtn{
+    background:#0077b6;
+}
+
+#predictBtn:hover{
+    background:#00649b;
+}
+
+#locationBtn{
+    background:#2ecc71;
+}
+
+#locationBtn:hover{
+    background:#27ae60;
 }
 
 #toggleData{
@@ -103,4 +110,92 @@ button:hover {
 
 #toggleData:hover{
     background:#13856d;
+}
+
+.result-card{
+    margin-top:30px;
+    padding:28px;
+    border-radius:18px;
+    background:#f8fbff;
+    border-left:8px solid #2ecc71;
+    box-shadow:0 8px 20px rgba(0,0,0,.08);
+}
+
+#result{
+    margin-bottom:15px;
+}
+
+.aqi-number{
+    font-size:78px;
+    font-weight:700;
+    color:#0077b6;
+    margin-top:8px;
+}
+
+.badge{
+    display:inline-block;
+    padding:10px 22px;
+    border-radius:30px;
+    color:white;
+    font-weight:bold;
+    margin:12px 0;
+    font-size:17px;
+}
+
+#recommendation{
+    margin-top:15px;
+    font-size:17px;
+    line-height:1.7;
+}
+
+.pollutant-grid{
+    margin-top:20px;
+    display:grid;
+    grid-template-columns:repeat(2,1fr);
+    gap:12px;
+}
+
+.pollutant-card{
+    background:white;
+    border-radius:12px;
+    padding:15px;
+    text-align:center;
+    box-shadow:0 5px 12px rgba(0,0,0,.08);
+    transition:.25s;
+}
+
+.pollutant-card:hover{
+    transform:translateY(-3px);
+}
+
+.pollutant-name{
+    color:#666;
+    font-size:14px;
+}
+
+.pollutant-value{
+    margin-top:6px;
+    font-size:24px;
+    font-weight:bold;
+    color:#0077b6;
+}
+
+@media(max-width:650px){
+
+.container{
+    padding:25px;
+}
+
+h1{
+    font-size:32px;
+}
+
+.aqi-number{
+    font-size:58px;
+}
+
+.pollutant-grid{
+    grid-template-columns:1fr;
+}
+
 }

@@ -5,9 +5,11 @@
 
     <meta charset="UTF-8">
 
-    <title>AirGuard AI</title>
+    <title>AirGuard AI | Real-Time AQI Prediction</title>
 
     <link rel="stylesheet" href="style.css">
+
+    <link rel="icon" href="https://cdn-icons-png.flaticon.com/512/1779/1779807.png">
 
 </head>
 
@@ -54,9 +56,14 @@
 
         <button id="toggleData">Show Live Data ▼</button>
 
-        <div id="pollutants" style="display:none; margin-top:20px;"></div>
+        <div id="pollutants" class="pollutant-grid" style="display:none;"></div>
+
+     <p class="footer">
+        Powered by OpenWeather API • AI-Based AQI Prediction
+    </p>
 
     </div>
+    
 
     <script src="script.js"></script>
 

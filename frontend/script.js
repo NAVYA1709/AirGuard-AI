@@ -47,7 +47,12 @@ document.getElementById("predictBtn").addEventListener("click", async () => {
 
     for (const key in pollutants) {
 
-        html += `<p><strong>${key}</strong>: ${pollutants[key]}</p>`;
+                    html += `
+            <div class="pollutant-card">
+                <div class="pollutant-name">${key}</div>
+                <div class="pollutant-value">${pollutants[key]}</div>
+            </div>
+            `;
 
     }
 

@@ -2,7 +2,7 @@
 
 AirGuard AI is a Machine Learning-powered web application that predicts the **Air Quality Index (AQI)** for any city using **live air pollution data** from the OpenWeather API. The application combines real-time environmental data with a trained Random Forest model to provide AQI predictions, pollutant information, air quality categories, and personalized health recommendations through an intuitive web interface.
 
-🚀 **Live Demo:** air-guard-ai-frontend.vercel.app
+🚀 **Live Demo:** https://air-guard-ai-frontend.vercel.app
 
 🔗 **Backend API:** https://airguard-ai-backend.onrender.com/docs
 

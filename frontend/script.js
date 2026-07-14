@@ -11,7 +11,7 @@ document.getElementById("predictBtn").addEventListener("click", async () => {
     document.getElementById("category").innerHTML = "";
     document.getElementById("recommendation").innerHTML = "";
 
-    const response = await fetch("http://127.0.0.1:8000/predict-city", {
+    const response = await fetch("https://airguard-ai-backend.onrender.com/predict-city", {
 
         method: "POST",
 
@@ -169,7 +169,7 @@ document.getElementById("locationBtn").addEventListener("click", async () => {
         document.getElementById("category").innerHTML = "";
         document.getElementById("recommendation").innerHTML = "";
 
-        const response = await fetch("http://127.0.0.1:8000/predict-location", {
+        const response = await fetch("https://airguard-ai-backend.onrender.com/predict-location", {
 
             method: "POST",
 
